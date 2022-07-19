@@ -1,8 +1,17 @@
 import React from 'react';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
+    onSearchSubmit = (term) => {
+        console.log("Here's the term i get: ", term);
+    };
+
     render() {
-        return <div>Hello, world!</div>;
+        return (
+            <div className='ui container'>
+                <SearchBar onSubmit={this.onSearchSubmit} />
+            </div>
+        );
     }
 }
 
