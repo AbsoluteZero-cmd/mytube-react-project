@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const [term, setTerm] = useState('');
 
     const onInputChange = (event) => {
@@ -9,19 +9,15 @@ const SearchBar = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        this.props.onSearchSubmit(term);
+        props.onSearchSubmit(term);
     };
 
     return (
         <div className='search-bar ui segment'>
-            <form className='ui form' onSubmit={(event) => onFormSubmit(event)}>
+            <form className='ui form' onSubmit={onFormSubmit}>
                 <div className='field'>
                     <label>Video Search</label>
-                    <input
-                        value={term}
-                        type='text'
-                        onChange={(event) => onInputChange(event)}
-                    />
+                    <input value={term} type='text' onChange={onInputChange} />
                 </div>
             </form>
         </div>
